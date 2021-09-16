@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Nodo implements Item {
 
     private String nombreNodo;
-    private ArrayList<Item> hijos;
+    private ArrayList<Item> hijos = new ArrayList();
 
     public Nodo(String nombre) {
         this.nombreNodo = nombre;
@@ -23,7 +23,13 @@ public class Nodo implements Item {
 
     @Override
     public int getCalorias() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int total = 0;
+
+        for (int i = 0; i < hijos.size(); i++) {
+            total += hijos.get(i).getCalorias();
+        }
+
+        return total;
     }
 
     @Override
@@ -50,7 +56,10 @@ public class Nodo implements Item {
         String nombreItem = item.getNombre();
 
         if (nombreItem.endsWith(this.nombreNodo.substring(0, 1))) {
+            System.out.println("si se agrego");
             this.hijos.add(item);
+        } else {
+            System.out.println("no se agrego");
         }
     }
 
