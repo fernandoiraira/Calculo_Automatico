@@ -6,6 +6,7 @@
 package main;
 
 import Clases.Artefacto;
+import Interfaces.Item;
 import Utilidades.TecladoIn;
 import java.util.ArrayList;
 
@@ -45,5 +46,17 @@ public class main {
         }
 
         return res;
+    }
+
+    public static void conectar() {
+        String cadena;
+
+        System.out.println("Ingresar lista de items (por ejemplo 5-C 4-C) separados por un espacio: ");
+        cadena = TecladoIn.readLine();
+
+    }
+
+    public static ArrayList<Item> parser() {
+        return null;
     }
 }
