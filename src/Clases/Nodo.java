@@ -47,7 +47,11 @@ public class Nodo implements Item {
     }
 
     public void agregar(Item item) {
-        this.hijos.add(item);
+        String nombreItem = item.getNombre();
+
+        if (nombreItem.endsWith(this.nombreNodo.substring(0, 1))) {
+            this.hijos.add(item);
+        }
     }
 
 }
