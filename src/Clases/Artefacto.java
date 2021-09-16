@@ -44,4 +44,9 @@ public class Artefacto implements Item {
     public int getNumero() {
         return this.numeroArtefacto;
     }
+
+    @Override
+    public boolean esNodo() {
+        return false;
+    }
 }
