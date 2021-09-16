@@ -10,5 +10,8 @@ package Interfaces;
  * @author Fernando
  */
 public interface Item {
-    
+   public int getCalorias();
+   public double getMetros();
+   public double getNombre();
+   public double getNumero();
 }
