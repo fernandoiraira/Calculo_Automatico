@@ -6,6 +6,7 @@
 package main;
 
 import Clases.Artefacto;
+import Clases.Nodo;
 import Interfaces.Item;
 import Utilidades.TecladoIn;
 import java.util.ArrayList;
@@ -18,9 +19,15 @@ public class main {
 
     public static void main(String[] args) {
 
-        ArrayList<Artefacto> listaArtefactos;
+        ArrayList<Item> lista;
 
-        listaArtefactos = crearArtefactos();
+        lista = iniciar();
+
+        System.out.println("LISTA:");
+
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i).getNombre());
+        }
 
     }
 
@@ -48,7 +55,7 @@ public class main {
         return res;
     }
 
-    public static void conectar() {
+    public static ArrayList<Item> iniciar() {
         String cadena;
         ArrayList items;
 
@@ -57,15 +64,65 @@ public class main {
         cadena = cadena.trim();
         items = parser(cadena);
 
+        return items;
     }
 
-    public static ArrayList<Item> parser(String cad) {
-        String sub;
+    public static ArrayList<Item> parser(String cadena) {
+        String sub, primerCaracter, nombreArtefacto;
+        int caloriasArtefacto;
+        double metrosArtefacto;
+        ArrayList res = new ArrayList();
 
-        sub = cad.substring(0, cad.indexOf(" "));
+        cadena = cadena + " ";
 
-        System.out.println("Subcadena: " + sub);
+        while (cadena.length() > 0) {
+            sub = cadena.substring(0, cadena.indexOf(" "));
+
+            cadena = cadena.substring(cadena.indexOf(" ") + 1);
+
+            System.out.println("subString: " + sub);
+
+            primerCaracter = sub.substring(0, 1);
+
+            if (esNumero(primerCaracter)) {
+                System.out.println("Nombre de Artefacto " + sub + ": ");
+                nombreArtefacto = TecladoIn.readLine();
+                System.out.println("Calorias: ");
+                caloriasArtefacto = TecladoIn.readLineInt();
+                System.out.println("Metros artefacto: ");
+                metrosArtefacto = TecladoIn.readLineDouble();
+
+                Artefacto nuevoArtefacto = new Artefacto(Integer.valueOf(sub.substring(0, 1)), nombreArtefacto, caloriasArtefacto, metrosArtefacto);
+                res.add(nuevoArtefacto);
+            } else {
+                Nodo nuevoNodo = new Nodo(sub);
+                res.add(nuevoNodo);
+            }
+        }
+
+        return res;
+    }
+
+    public static boolean esNumero(String letra) {
+        return (letra.equals("0")
+                || letra.equals("1")
+                || letra.equals("2")
+                || letra.equals("3")
+                || letra.equals("4")
+                || letra.equals("5")
+                || letra.equals("6")
+                || letra.equals("7")
+                || letra.equals("8")
+                || letra.equals("9"));
+    }
+
+    public static Nodo cargaPublica() {
+        Nodo raiz;
 
         return null;
+    }
+
+    private static void cargaAux() {
+
     }
 }
