@@ -50,13 +50,22 @@ public class main {
 
     public static void conectar() {
         String cadena;
+        ArrayList items;
 
         System.out.println("Ingresar lista de items (por ejemplo 5-C 4-C) separados por un espacio: ");
         cadena = TecladoIn.readLine();
+        cadena = cadena.trim();
+        items = parser(cadena);
 
     }
 
-    public static ArrayList<Item> parser() {
+    public static ArrayList<Item> parser(String cad) {
+        String sub;
+
+        sub = cad.substring(0, cad.indexOf(" "));
+
+        System.out.println("Subcadena: " + sub);
+
         return null;
     }
 }
