@@ -56,8 +56,6 @@ public class main {
 
             cadena = cadena.substring(cadena.indexOf(" ") + 1);
 
-            System.out.println("subString: " + sub);
-
             primerCaracter = sub.substring(0, 1);
 
             if (esNumero(primerCaracter)) {
@@ -92,13 +90,34 @@ public class main {
                 || letra.equals("9"));
     }
 
-    public static Nodo cargaPublica() {
+    public static Nodo cargaPublica(ArrayList lista) {
         Nodo raiz;
+        int indice = lista.size() - 1;
+
+        raiz = (Nodo) lista.get(lista.size() - 1);
+        cargaAux(raiz, lista, indice - 1);
 
         return null;
     }
 
-    private static void cargaAux() {
+    private static void cargaAux(Nodo visitado, ArrayList<Item> lista, int indice) {
+        Item aux;
+
+        aux = lista.get(indice);
+
+        if (indice >= 0) {
+            if (aux.esNodo()) {
+                //Llamado recursivo
+            } else {
+                while (!aux.esNodo()) {
+                    visitado.agregar(aux);
+                    indice -= 1;
+                    aux = lista.get(indice);
+                }
+                visitado.agregar(aux);
+                //Llamado recursivo
+            }
+        }
 
     }
 }
