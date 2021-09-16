@@ -14,4 +14,5 @@ public interface Item {
    public double getMetros();
    public String getNombre();
    public int getNumero();
+   public boolean esNodo();
 }
