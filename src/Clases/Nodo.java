@@ -6,12 +6,20 @@
 package Clases;
 
 import Interfaces.Item;
+import java.util.ArrayList;
 
 /**
  *
  * @author Fernando
  */
 public class Nodo implements Item {
+
+    private String nombreNodo;
+    private ArrayList<Item> hijos;
+
+    public Nodo(String nombre) {
+        this.nombreNodo = nombre;
+    }
 
     @Override
     public int getCalorias() {
