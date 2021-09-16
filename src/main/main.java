@@ -21,7 +21,7 @@ public class main {
 
         ArrayList<Item> lista;
 
-        lista = iniciar();
+        lista = listarItems();
 
         System.out.println("LISTA:");
 
@@ -31,31 +31,7 @@ public class main {
 
     }
 
-    public static ArrayList<Artefacto> crearArtefactos() {
-        ArrayList<Artefacto> res = new ArrayList();
-        int cantArtefactos, caloriasArtefacto;
-        double metrosArtefacto;
-        String nombreArtefacto;
-
-        System.out.println("Cantidad de artefactos: ");
-        cantArtefactos = TecladoIn.readLineInt();
-
-        for (int i = 1; i <= cantArtefactos; i++) {
-            System.out.println("Nombre artefacto " + (i + 1) + ": ");
-            nombreArtefacto = TecladoIn.readLine();
-            System.out.println("Calorias: ");
-            caloriasArtefacto = TecladoIn.readLineInt();
-            System.out.println("Metros artefacto: ");
-            metrosArtefacto = TecladoIn.readLineDouble();
-
-            Artefacto nuevoArtefacto = new Artefacto((i + 1), nombreArtefacto, caloriasArtefacto, metrosArtefacto);
-            res.add(nuevoArtefacto);
-        }
-
-        return res;
-    }
-
-    public static ArrayList<Item> iniciar() {
+    public static ArrayList<Item> listarItems() {
         String cadena;
         ArrayList items;
 
