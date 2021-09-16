@@ -33,7 +33,7 @@ public class Nodo implements Item {
 
     @Override
     public String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.nombreNodo;
     }
 
     @Override
