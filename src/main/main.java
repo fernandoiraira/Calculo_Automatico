@@ -20,6 +20,7 @@ public class main {
     public static void main(String[] args) {
 
         ArrayList<Item> lista;
+        Nodo raiz;
 
         lista = listarItems();
 
@@ -28,6 +29,10 @@ public class main {
         for (int i = 0; i < lista.size(); i++) {
             System.out.println(lista.get(i).getNombre());
         }
+
+        raiz = cargaPublica(lista);
+
+        System.out.println(raiz.getCalorias());
 
     }
 
@@ -97,26 +102,29 @@ public class main {
         raiz = (Nodo) lista.get(lista.size() - 1);
         cargaAux(raiz, lista, indice - 1);
 
-        return null;
+        return raiz;
     }
 
     private static void cargaAux(Nodo visitado, ArrayList<Item> lista, int indice) {
         Item aux;
+        System.out.println("LLAMADO RECURSIVO!!!!!!!!!!!!!!!!!!!!");
 
+        for (int i = indice; i >= 0; i--) {
+            visitado.agregar(lista.get(i));
+        }
+
+        indice--;
         aux = lista.get(indice);
+        System.out.println("auxiliar: " + aux.getNombre());
+        System.out.println("ES NODO: " + aux.esNodo());
 
-        if (indice >= 0) {
-            if (aux.esNodo()) {
-                //Llamado recursivo
-            } else {
-                while (!aux.esNodo()) {
-                    visitado.agregar(aux);
-                    indice -= 1;
-                    aux = lista.get(indice);
-                }
-                visitado.agregar(aux);
-                //Llamado recursivo
-            }
+        while (!aux.esNodo() && indice > 0) {
+            indice--;
+            aux = lista.get(indice);
+        }
+
+        if (indice > -1 && aux.esNodo()) {
+            cargaAux((Nodo) aux, lista, indice);
         }
     }
 }
