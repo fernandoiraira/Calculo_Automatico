@@ -56,10 +56,10 @@ public class Nodo implements Item {
         String nombreItem = item.getNombre();
 
         if (nombreItem.endsWith(this.nombreNodo.substring(0, 1))) {
-            System.out.println("si se agrego");
+            System.out.println("Se agrego " + item.getNombre() + " a " + this.nombreNodo);
             this.hijos.add(item);
         } else {
-            System.out.println("no se agrego");
+            System.out.println("NO se agrego " + item.getNombre() + " a " + this.nombreNodo);
         }
     }
 
