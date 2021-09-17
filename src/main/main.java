@@ -7,6 +7,7 @@ package main;
 
 import Clases.Artefacto;
 import Clases.Nodo;
+import Clases.Tabla;
 import Interfaces.Item;
 import Utilidades.TecladoIn;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 public class main {
 
     public static void main(String[] args) {
-
+        Tabla tabla = new Tabla();
         ArrayList<Item> lista;
         Nodo raiz;
 
@@ -30,6 +31,7 @@ public class main {
 
         for (int i = 0; i < lista.size(); i++) {
             System.out.println("Consumo " + lista.get(i).getNombre() + ": " + (lista.get(i).getCalorias() / 9300));
+            System.out.println("Diametro: " + tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias()));
         }
 
         System.out.println("Calorias totales: " + raiz.getCalorias());
