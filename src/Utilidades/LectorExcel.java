@@ -10,6 +10,8 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -31,9 +33,38 @@ public class LectorExcel {
 
             Iterator rowIterator = hssfSheet.rowIterator();
 
+            while (rowIterator.hasNext()) {
+                XSSFRow hssfRow = (XSSFRow) rowIterator.next();
+                Iterator iterator = hssfRow.cellIterator();
+                List cellTemp = new ArrayList();
+
+                while (iterator.hasNext()) {
+                    XSSFCell hssfCell = (XSSFCell) iterator.next();
+                    cellTemp.add(hssfCell);
+                }
+
+                cellData.add(cellTemp);
+            }
+
         } catch (Exception e) {
         }
 
+        obtener(cellData);
     }
 
-}
+    private void obtener(List cellDataList) {
+        for (int i = 0; i < cellDataList.size(); i++) {
+            List cellTempList = (List) cellDataList.get(i);
+
+            for (int j = 0; j < cellTempList.size(); j++) {
+                XSSFCell hssfCell = (XSSFCell) cellTempList.get(j);
+                String stringCellValue = hssfCell.toString();
+                System.out.println(stringCellValue + " ");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String ruta = "C:/Users/Fernando/Desktop/datos_gas.xlsx";
+        
+    }
