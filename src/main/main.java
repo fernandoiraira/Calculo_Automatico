@@ -31,6 +31,7 @@ public class main {
 
         for (int i = 0; i < lista.size(); i++) {
             System.out.println("Consumo " + lista.get(i).getNombre() + ": " + (lista.get(i).getCalorias() / 9300));
+            System.out.println("Metros reales: " + lista.get(i).getMetros() + " | Metros adaptados: " + (lista.get(i).getMetros() * 1.35));
             System.out.println("Diametro: " + tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias()));
         }
 
@@ -52,7 +53,7 @@ public class main {
     public static ArrayList<Item> parser(String cadena) {
         String sub, primerCaracter, nombreArtefacto;
         int caloriasArtefacto;
-        double metrosArtefacto;
+        double metrosArtefacto, mayor = 0;
         ArrayList res = new ArrayList();
 
         cadena = cadena + " ";
@@ -72,6 +73,9 @@ public class main {
                 caloriasArtefacto = TecladoIn.readLineInt();
                 System.out.println("Metros artefacto: ");
                 metrosArtefacto = TecladoIn.readLineDouble();
+                if (mayor < metrosArtefacto) {
+                    mayor = metrosArtefacto;
+                }
 
                 Artefacto nuevoArtefacto = new Artefacto(Integer.valueOf(sub.substring(0, 1)), nombreArtefacto, caloriasArtefacto, metrosArtefacto);
                 res.add(nuevoArtefacto);
@@ -81,6 +85,12 @@ public class main {
             }
         }
 
+        for (int i = 0; i < res.size(); i++) {
+            Item vis = (Item) res.get(i);
+            if (vis.esNodo()) {
+                vis.setMetros(mayor);
+            }
+        }
         return res;
     }
 
