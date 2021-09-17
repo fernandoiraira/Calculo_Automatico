@@ -42,6 +42,8 @@ public class Tabla {
         t = new ArrayList();
         u = new ArrayList();
         v = new ArrayList();
+        w = new ArrayList();
+        x = new ArrayList();
 
         a.add(5.594);
         a.add(12.377);
