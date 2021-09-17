@@ -16,7 +16,7 @@ import java.util.Map;
 public class Tabla {
 
     Map<Integer, ArrayList<Integer>> map = new HashMap<Integer, ArrayList<Integer>>();
-    ArrayList a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+    ArrayList a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, gg, hh;
     int[] arrayMetros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48};
 
     public Tabla() {
@@ -46,6 +46,14 @@ public class Tabla {
         x = new ArrayList();
         y = new ArrayList();
         z = new ArrayList();
+        aa = new ArrayList();
+        bb = new ArrayList();
+        cc = new ArrayList();
+        dd = new ArrayList();
+        ee = new ArrayList();
+        ff = new ArrayList();
+        gg = new ArrayList();
+        hh = new ArrayList();
 
         a.add(5.594);
         a.add(12.377);
@@ -203,6 +211,54 @@ public class Tabla {
         z.add(8.466);
         z.add(16.219);
 
+        aa.add(0.843);
+        aa.add(1.866);
+        aa.add(4.107);
+        aa.add(8.272);
+        aa.add(15.846);
+
+        bb.add(0.825);
+        bb.add(1.825);
+        bb.add(4.017);
+        bb.add(8.090);
+        bb.add(15.497);
+
+        cc.add(0.807);
+        cc.add(1.786);
+        cc.add(3.932);
+        cc.add(7.919);
+        cc.add(15.171);
+
+        dd.add(0.791);
+        dd.add(1.750);
+        dd.add(3.853);
+        dd.add(7.759);
+        dd.add(14.865);
+
+        ee.add(0.754);
+        ee.add(1.669);
+        ee.add(3.674);
+        ee.add(7.398);
+        ee.add(14.173);
+
+        ff.add(0.722);
+        ff.add(1.598);
+        ff.add(3.517);
+        ff.add(7.083);
+        ff.add(13.569);
+
+        gg.add(0.694);
+        gg.add(1.535);
+        gg.add(3.379);
+        gg.add(6.805);
+        gg.add(13.037);
+
+        hh.add(0.669);
+        hh.add(1.479);
+        hh.add(3.256);
+        hh.add(6.558);
+        hh.add(12.563);
+
         map.put(1, a);
         map.put(2, b);
         map.put(3, c);
@@ -229,6 +285,14 @@ public class Tabla {
         map.put(38, x);
         map.put(40, y);
         map.put(42, z);
+        map.put(44, aa);
+        map.put(46, bb);
+        map.put(48, cc);
+        map.put(50, dd);
+        map.put(55, ee);
+        map.put(60, ff);
+        map.put(65, gg);
+        map.put(70, hh);
     }
 
     public String pedirDiametro(double metros, double consumo) {
