@@ -21,8 +21,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class LectorExcel {
 
+    private List cellData = new ArrayList();
+
     public LectorExcel(File filename) {
-        List cellData = new ArrayList();
 
         try {
 
@@ -43,7 +44,7 @@ public class LectorExcel {
                     cellTemp.add(hssfCell);
                 }
 
-                cellData.add(cellTemp);
+                this.cellData.add(cellTemp);
             }
 
         } catch (Exception e) {
@@ -64,8 +65,46 @@ public class LectorExcel {
         }
     }
 
+    public String getLista() {
+        String res = "";
+
+        for (int i = 0; i < this.cellData.size(); i++) {
+            List cellTempList = (List) this.cellData.get(i);
+            for (int j = 0; j < 1; j++) {
+                XSSFCell hssfCell = (XSSFCell) cellTempList.get(j);
+                String stringCellValue = hssfCell.toString();
+                System.out.println(stringCellValue + " ");
+            }
+        }
+        return res;
+    }
+
+    public String getMetros() {
+        String res = "";
+
+        for (int i = 0; i < this.cellData.size(); i++) {
+            List cellTempList = (List) this.cellData.get(i);
+            for (int j = 1; j < 2; j++) {
+                XSSFCell hssfCell = (XSSFCell) cellTempList.get(j);
+                String stringCellValue = hssfCell.toString();
+                System.out.println(stringCellValue + " ");
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         String ruta = "C:/Users/Fernando/Desktop/datos_gas.xlsx";
+        File f = new File(ruta);
+
+        if (f.exists()) {
+            LectorExcel obj = new LectorExcel(f);
+
+            System.out.println("-----------");
+            obj.getMetros();
+        } else {
+            System.out.println("No existe el archivo especificado!");
+        }
 
     }
 }
