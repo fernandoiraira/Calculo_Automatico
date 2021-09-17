@@ -10,7 +10,7 @@ package Interfaces;
  * @author Fernando
  */
 public interface Item {
-   public int getCalorias();
+   public double getCalorias();
    public double getMetros();
    public String getNombre();
    public int getNumero();
