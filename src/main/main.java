@@ -25,7 +25,7 @@ public class main {
         lista = listarItems();
 
         raiz = cargaPublica(lista);
-        
+
         System.out.println("--------------------------------------");
 
         for (int i = 0; i < lista.size(); i++) {
