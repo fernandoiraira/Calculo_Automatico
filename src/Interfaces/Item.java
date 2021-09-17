@@ -15,4 +15,5 @@ public interface Item {
    public String getNombre();
    public int getNumero();
    public boolean esNodo();
+   public void calcularDiametro();
 }
