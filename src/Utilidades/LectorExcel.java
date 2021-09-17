@@ -30,7 +30,6 @@ public class LectorExcel {
             XSSFSheet hssfSheet = workBook.getSheetAt(0);
 
             Iterator rowIterator = hssfSheet.rowIterator();
-            
 
         } catch (Exception e) {
         }
