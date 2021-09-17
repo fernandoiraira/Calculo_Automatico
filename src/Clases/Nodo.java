@@ -22,8 +22,8 @@ public class Nodo implements Item {
     }
 
     @Override
-    public int getCalorias() {
-        int total = 0;
+    public double getCalorias() {
+        double total = 0;
 
         for (int i = 0; i < hijos.size(); i++) {
             total += hijos.get(i).getCalorias();
