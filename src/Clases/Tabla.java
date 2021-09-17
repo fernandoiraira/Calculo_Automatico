@@ -16,7 +16,7 @@ import java.util.Map;
 public class Tabla {
 
     Map<Integer, ArrayList<Integer>> map = new HashMap<Integer, ArrayList<Integer>>();
-    ArrayList a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v;
+    ArrayList a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, z;
     int[] arrayMetros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48};
 
     public Tabla() {
@@ -175,6 +175,18 @@ public class Tabla {
         v.add(9.410);
         v.add(18.026);
 
+        w.add(0.932);
+        w.add(2.063);
+        w.add(4.541);
+        w.add(9.145);
+        w.add(17.518);
+
+        x.add(0.908);
+        x.add(2.008);
+        x.add(4.420);
+        x.add(8.901);
+        x.add(17.051);
+
         map.put(1, a);
         map.put(2, b);
         map.put(3, c);
@@ -197,6 +209,8 @@ public class Tabla {
         map.put(30, t);
         map.put(32, u);
         map.put(34, v);
+        map.put(36, w);
+        map.put(38, x);
     }
 
     public String pedirDiametro(double metros, double consumo) {
