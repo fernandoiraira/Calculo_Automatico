@@ -64,8 +64,9 @@ public class main {
             primerCaracter = sub.substring(0, 1);
 
             if (esNumero(primerCaracter)) {
-                System.out.println("Nombre de Artefacto " + sub + ": ");
-                nombreArtefacto = TecladoIn.readLine();
+                nombreArtefacto = sub;
+                System.out.println("----------");
+                System.out.println(sub);
                 System.out.println("Calorias: ");
                 caloriasArtefacto = TecladoIn.readLineInt();
                 System.out.println("Metros artefacto: ");
@@ -107,7 +108,6 @@ public class main {
 
     private static void cargaAux(Nodo visitado, ArrayList<Item> lista, int indice) {
         Item aux;
-        System.out.println("LLAMADO RECURSIVO!!!!!!!!!!!!!!!!!!!!");
 
         for (int i = indice; i >= 0; i--) {
             visitado.agregar(lista.get(i));
@@ -115,8 +115,6 @@ public class main {
 
         indice--;
         aux = lista.get(indice);
-        System.out.println("auxiliar: " + aux.getNombre());
-        System.out.println("ES NODO: " + aux.esNodo());
 
         while (!aux.esNodo() && indice > 0) {
             indice--;
