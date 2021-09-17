@@ -32,8 +32,11 @@ public class main {
 
         raiz = cargaPublica(lista);
 
-        System.out.println("Calorias totales: " + raiz.getCalorias());
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println("Consumo " + lista.get(i).getNombre() + ": " + (lista.get(i).getCalorias() / 9300));
+        }
 
+        System.out.println("Calorias totales: " + raiz.getCalorias());
     }
 
     public static ArrayList<Item> listarItems() {
