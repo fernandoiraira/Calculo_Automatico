@@ -66,5 +66,6 @@ public class LectorExcel {
 
     public static void main(String[] args) {
         String ruta = "C:/Users/Fernando/Desktop/datos_gas.xlsx";
-        
+
     }
+}
