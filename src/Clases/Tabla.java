@@ -205,6 +205,8 @@ public class Tabla {
         double metrosAdaptados = metros * 1.35;
         String res = "";
 
+        consumo = consumo / 9300;
+
         //Levanto metros a los valores de la tabla
         metrosAdaptados = haciaArriba(metrosAdaptados);
 
