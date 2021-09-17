@@ -104,7 +104,7 @@ public class Tabla {
     }
 
     public String pedirDiametro(double metros, double consumo) {
-        ArrayList fila = new ArrayList();
+        ArrayList fila;
         int indice = 0;
         String res = "";
 
