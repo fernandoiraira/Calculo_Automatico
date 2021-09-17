@@ -17,6 +17,7 @@ public class Artefacto implements Item {
     private String nombreArtefacto;
     private double calorias;
     private double metros;
+    private String diametro;
 
     public Artefacto(int num, String nombre, int calorias, double metros) {
         this.numeroArtefacto = num;
@@ -48,5 +49,10 @@ public class Artefacto implements Item {
     @Override
     public boolean esNodo() {
         return false;
+    }
+
+    @Override
+    public void calcularDiametro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
