@@ -32,7 +32,7 @@ public class main {
 
         raiz = cargaPublica(lista);
 
-        System.out.println(raiz.getCalorias());
+        System.out.println("Calorias totales: " + raiz.getCalorias());
 
     }
 
