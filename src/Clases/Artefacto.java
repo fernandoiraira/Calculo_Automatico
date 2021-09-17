@@ -15,7 +15,7 @@ public class Artefacto implements Item {
 
     private int numeroArtefacto;
     private String nombreArtefacto;
-    private int calorias;
+    private double calorias;
     private double metros;
 
     public Artefacto(int num, String nombre, int calorias, double metros) {
@@ -26,7 +26,7 @@ public class Artefacto implements Item {
     }
 
     @Override
-    public int getCalorias() {
+    public double getCalorias() {
         return this.calorias;
     }
 
