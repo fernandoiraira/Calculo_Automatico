@@ -16,4 +16,5 @@ public interface Item {
    public int getNumero();
    public boolean esNodo();
    public void calcularDiametro();
+   public void setMetros(double metros);
 }
