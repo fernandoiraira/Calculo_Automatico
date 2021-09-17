@@ -16,6 +16,7 @@ public class Nodo implements Item {
 
     private String nombreNodo;
     private ArrayList<Item> hijos = new ArrayList();
+    private double metros;
 
     public Nodo(String nombre) {
         this.nombreNodo = nombre;
@@ -32,9 +33,13 @@ public class Nodo implements Item {
         return total;
     }
 
+    public void setMetros(double m) {
+        this.metros = m;
+    }
+
     @Override
     public double getMetros() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.metros;
     }
 
     @Override
