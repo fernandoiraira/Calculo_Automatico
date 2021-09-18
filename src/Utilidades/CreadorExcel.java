@@ -36,7 +36,7 @@ public class CreadorExcel {
         XSSFWorkbook libro = new XSSFWorkbook();
         XSSFSheet hoja1 = libro.createSheet(this.hoja);
         //cabecera de la hoja de excel
-        String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)", "LONGIT. EQUIV. (m)", "CONSUMO m3", "DIAM mm"};
+        String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)", "LONGIT. EQUIV. (m)", "LONGIT. CALC. (m)", "CONSUMO m3", "DIAM mm"};
 
         //contenido de la hoja de excel
         this.matrizDatos = matriz;
