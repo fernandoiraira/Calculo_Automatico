@@ -31,10 +31,10 @@ public class CreadorExcel {
         XSSFWorkbook libro = new XSSFWorkbook();
         XSSFSheet hoja1 = libro.createSheet(hoja);
         //cabecera de la hoja de excel
-        String[] header = new String[]{"Código", "Producto", "Precio", "Unidades"};
+        String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)", "LONGIT. EQUIV. (m)", "CONSUMO m3"};
 
         //contenido de la hoja de excel
-        String[][] document = new String[][]{
+        String[][] matrizDatos = new String[][]{
             {"AP150", "ACCESS POINT TP-LINK TL-WA901ND 450Mbps Wireless N 1RJ45 10-100 3Ant.", "112.00", "50"},
             {"RTP150", "ROUTER TP-LINK TL-WR940ND 10-100Mbpps LAN WAN 2.4 - 2.4835Ghz", "19.60", "25"},
             {"TRT300", "TARJETA DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"},
@@ -49,7 +49,7 @@ public class CreadorExcel {
         style.setFont(font);
 
         //generar los datos para el documento
-        for (int i = 0; i <= document.length; i++) {
+        for (int i = 0; i <= matrizDatos.length; i++) {
             XSSFRow row = hoja1.createRow(i);//se crea las filas
             for (int j = 0; j < header.length; j++) {
                 if (i == 0) {//para la cabecera
@@ -58,7 +58,7 @@ public class CreadorExcel {
                     cell.setCellValue(header[j]);//se añade el contenido					
                 } else {//para el contenido
                     XSSFCell cell = row.createCell(j);//se crea las celdas para la contenido, junto con la posición
-                    cell.setCellValue(document[i - 1][j]); //se añade el contenido
+                    cell.setCellValue(matrizDatos[i - 1][j]); //se añade el contenido
                 }
             }
         }
