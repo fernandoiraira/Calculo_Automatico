@@ -36,7 +36,7 @@ public class CreadorExcel {
         XSSFWorkbook libro = new XSSFWorkbook();
         XSSFSheet hoja1 = libro.createSheet(this.hoja);
         //cabecera de la hoja de excel
-        String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)","LONGIT. CALC. (m)","CONSUMO m3", "DIAM mm"};
+        String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)", "LONGIT. CALC. (m)", "CONSUMO m3", "DIAM mm"};
 
         //contenido de la hoja de excel
         this.matrizDatos = matriz;
@@ -67,12 +67,11 @@ public class CreadorExcel {
         try ( FileOutputStream fileOuS = new FileOutputStream(file)) {
             if (file.exists()) {// si el archivo existe se elimina
                 file.delete();
-                System.out.println("Archivo eliminado");
             }
             libro.write(fileOuS);
             fileOuS.flush();
             fileOuS.close();
-            System.out.println("Archivo Creado");
+            System.out.println("Archivo Excel Creado!");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
