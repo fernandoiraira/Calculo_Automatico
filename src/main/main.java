@@ -54,8 +54,6 @@ public class main {
             System.out.println("No existe el archivo especificado!");
         }
 
-//        System.out.println("Ingresar lista de items (por ejemplo 5-C 4-C) separados por un espacio: ");
-//        cadena = TecladoIn.readLine();
         cadena = cadena.trim();
 
         items = parser(cadena);
