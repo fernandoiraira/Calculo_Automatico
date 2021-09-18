@@ -32,7 +32,7 @@ public class main {
         for (int i = 0; i < lista.size(); i++) {
             System.out.println("--------------------------------------");
             System.out.println("Consumo " + lista.get(i).getNombre() + ": " + (lista.get(i).getCalorias() / 9300));
-            System.out.println("Metros reales: " + lista.get(i).getMetros() + " | Metros adaptados: " + (lista.get(i).getMetros() * 1.35));
+            System.out.println("Metros reales: " + lista.get(i).getMetros() + " | Metros agregados: " + (lista.get(i).getMetros() * 0.35) + " | Metros adaptados: " + (lista.get(i).getMetros() * 1.35));
             System.out.println("Diametro: " + tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias()));
         }
 
