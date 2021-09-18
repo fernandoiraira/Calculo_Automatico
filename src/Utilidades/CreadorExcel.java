@@ -48,7 +48,7 @@ public class CreadorExcel {
         style.setFont(font);
 
         //generar los datos para el documento
-        for (int i = 0; i <= matrizDatos.length; i++) {
+        for (int i = 0; i <= this.matrizDatos.length; i++) {
             XSSFRow row = hoja1.createRow(i);//se crea las filas
             for (int j = 0; j < header.length; j++) {
                 if (i == 0) {//para la cabecera
@@ -57,7 +57,7 @@ public class CreadorExcel {
                     cell.setCellValue(header[j]);//se añade el contenido					
                 } else {//para el contenido
                     XSSFCell cell = row.createCell(j);//se crea las celdas para la contenido, junto con la posición
-                    cell.setCellValue(matrizDatos[i - 1][j]); //se añade el contenido
+                    cell.setCellValue(this.matrizDatos[i - 1][j]); //se añade el contenido
                 }
             }
         }
@@ -83,7 +83,14 @@ public class CreadorExcel {
 
     public static void main(String[] args) {
 
-        CreadorExcel creador = new CreadorExcel();
+        String[][] matriz = new String[][]{
+            {"AP150", "ACCESS POINT TP-LINK TL-WA901ND 450Mbps Wireless N 1RJ45 10-100 3Ant.", "112.00", "50"},
+            {"RTP150", "ROUTER TP-LINK TL-WR940ND 10-100Mbpps LAN WAN 2.4 - 2.4835Ghz", "19.60", "25"},
+            {"TRT300", "TARJETA DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"},
+            {"TRT300", "DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"},
+            {"TR0", "DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"}};
+
+        CreadorExcel creador = new CreadorExcel("Prueba_objeto.xlsx", "Hoja1", matriz);
 
     }
 }
