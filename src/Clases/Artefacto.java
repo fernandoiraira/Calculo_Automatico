@@ -52,11 +52,6 @@ public class Artefacto implements Item {
     }
 
     @Override
-    public void calcularDiametro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void setMetros(double metros) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
