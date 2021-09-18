@@ -22,19 +22,24 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class CreadorExcel {
 
-    public static void main(String[] args) {
+    private String nombreArchivo;
+    private String rutaArchivo = "C:\\Ficheros_excel\\";
+    private String hoja;
+    private String[][] matrizDatos;
 
-        String nombreArchivo = "Inventario.xlsx";
-        String rutaArchivo = "C:\\Ficheros_excel\\" + nombreArchivo;
-        String hoja = "Hoja1";
+    public CreadorExcel(String nombre, String ruta, String hoja) {
+
+        nombreArchivo = nombre;
+        rutaArchivo += nombreArchivo;
+        this.hoja = hoja;
 
         XSSFWorkbook libro = new XSSFWorkbook();
-        XSSFSheet hoja1 = libro.createSheet(hoja);
+        XSSFSheet hoja1 = libro.createSheet(this.hoja);
         //cabecera de la hoja de excel
         String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)", "LONGIT. EQUIV. (m)", "CONSUMO m3"};
 
         //contenido de la hoja de excel
-        String[][] matrizDatos = new String[][]{
+        this.matrizDatos = new String[][]{
             {"AP150", "ACCESS POINT TP-LINK TL-WA901ND 450Mbps Wireless N 1RJ45 10-100 3Ant.", "112.00", "50"},
             {"RTP150", "ROUTER TP-LINK TL-WR940ND 10-100Mbpps LAN WAN 2.4 - 2.4835Ghz", "19.60", "25"},
             {"TRT300", "TARJETA DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"},
@@ -80,7 +85,6 @@ public class CreadorExcel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 }
