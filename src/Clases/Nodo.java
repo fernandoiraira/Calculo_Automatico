@@ -65,8 +65,4 @@ public class Nodo implements Item {
         }
     }
 
-    @Override
-    public void calcularDiametro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
