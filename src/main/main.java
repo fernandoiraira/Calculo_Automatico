@@ -24,6 +24,7 @@ public class main {
         Tabla tabla = new Tabla();
         ArrayList<Item> lista;
         Nodo raiz;
+        String[][] matriz;
 
         lista = listarItems();
 
