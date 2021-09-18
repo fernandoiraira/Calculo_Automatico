@@ -81,7 +81,7 @@ public class LectorExcel {
     public double[] getMetros() {
         double[] resultado = new double[this.cellData.size()];
 
-        for (int i = 0; i < this.cellData.size(); i++) {
+        for (int i = 0; i < this.cellData.size() - 1; i++) {
             List cellTempList = (List) this.cellData.get(i);
             for (int j = 1; j < 2; j++) {
                 XSSFCell hssfCell = (XSSFCell) cellTempList.get(j);
@@ -95,12 +95,17 @@ public class LectorExcel {
     public static void main(String[] args) {
         String ruta = "C:/Users/Fernando/Desktop/datos_gas.xlsx";
         File f = new File(ruta);
+        double[] asd;
 
         if (f.exists()) {
             LectorExcel obj = new LectorExcel(f);
 
-            System.out.println("-----------");
-            System.out.println(obj.getMetros());
+            System.out.println("IMPRESION!!!!");
+            asd = obj.getMetros();
+
+            for (int i = 0; i < asd.length - 1; i++) {
+                System.out.println(asd[i]);
+            }
         } else {
             System.out.println("No existe el archivo especificado!");
         }
