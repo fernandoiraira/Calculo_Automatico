@@ -9,6 +9,7 @@ import Clases.Artefacto;
 import Clases.Nodo;
 import Clases.Tabla;
 import Interfaces.Item;
+import Utilidades.CreadorExcel;
 import Utilidades.LectorExcel;
 import Utilidades.TecladoIn;
 import java.io.File;
@@ -36,6 +37,21 @@ public class main {
             System.out.println("Metros reales: " + lista.get(i).getMetros() + " | Metros agregados: " + (lista.get(i).getMetros() * 0.35) + " | Metros adaptados: " + (lista.get(i).getMetros() * 1.35));
             System.out.println("Diametro: " + tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias()));
         }
+
+        matriz = new String[lista.size()][lista.size()];
+
+        generarExcel(matriz, lista);
+
+    }
+
+    public static void generarExcel(String[][] matriz, ArrayList<Item> lista) {
+        CreadorExcel creador;
+
+        for (int i = 0; i < lista.size(); i++) {
+            matriz[i][0] = lista.get(i).getNombre();
+        }
+
+        creador = new CreadorExcel("Calculo_completo.xlsx", "Calculo", matriz);
 
     }
 
