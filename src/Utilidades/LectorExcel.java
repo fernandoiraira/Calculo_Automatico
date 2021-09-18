@@ -91,24 +91,4 @@ public class LectorExcel {
         }
         return resultado;
     }
-
-    public static void main(String[] args) {
-        String ruta = "C:/Users/Fernando/Desktop/datos_gas.xlsx";
-        File f = new File(ruta);
-        double[] asd;
-
-        if (f.exists()) {
-            LectorExcel obj = new LectorExcel(f);
-
-            System.out.println("IMPRESION!!!!");
-            asd = obj.getMetros();
-
-            for (int i = 0; i < asd.length - 1; i++) {
-                System.out.println(asd[i]);
-            }
-        } else {
-            System.out.println("No existe el archivo especificado!");
-        }
-
-    }
 }
