@@ -27,7 +27,7 @@ public class CreadorExcel {
     private String hoja;
     private String[][] matrizDatos;
 
-    public CreadorExcel(String nombre, String ruta, String hoja, String[][] matriz) {
+    public CreadorExcel(String nombre, String hoja, String[][] matriz) {
 
         nombreArchivo = nombre;
         rutaArchivo += nombreArchivo;
@@ -82,8 +82,8 @@ public class CreadorExcel {
     }
 
     public static void main(String[] args) {
-        
+
+        CreadorExcel creador = new CreadorExcel();
 
     }
-
 }
