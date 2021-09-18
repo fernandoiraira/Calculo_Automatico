@@ -73,7 +73,7 @@ public class LectorExcel {
             for (int j = 0; j < 1; j++) {
                 XSSFCell hssfCell = (XSSFCell) cellTempList.get(j);
                 String stringCellValue = hssfCell.toString();
-                System.out.println(stringCellValue + " ");
+                res = stringCellValue;
             }
         }
         return res;
