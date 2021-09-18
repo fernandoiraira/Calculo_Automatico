@@ -36,8 +36,6 @@ public class main {
             System.out.println("Diametro: " + tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias()));
         }
 
-        System.out.println("----------");
-        System.out.println("Calorias totales: " + raiz.getCalorias());
     }
 
     public static ArrayList<Item> listarItems() {
