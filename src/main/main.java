@@ -38,7 +38,7 @@ public class main {
             System.out.println("Diametro: " + tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias()));
         }
 
-        matriz = new String[lista.size()][lista.size()];
+        matriz = new String[lista.size()][6];
 
         generarExcel(matriz, lista, tabla);
 
@@ -51,8 +51,9 @@ public class main {
             matriz[i][0] = lista.get(i).getNombre();
             matriz[i][1] = String.valueOf(lista.get(i).getMetros());
             matriz[i][2] = String.valueOf(lista.get(i).getMetros() * .35);
-            matriz[i][3] = String.valueOf(lista.get(i).getCalorias() / 9300);
-            matriz[i][4] = tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias());
+            matriz[i][3] = String.valueOf(lista.get(i).getMetros() * 1.35);
+            matriz[i][4] = String.valueOf(lista.get(i).getCalorias() / 9300);
+            matriz[i][5] = tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias());
         }
 
         creador = new CreadorExcel("Calculo_completo.xlsx", "Calculo", matriz);
