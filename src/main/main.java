@@ -9,7 +9,9 @@ import Clases.Artefacto;
 import Clases.Nodo;
 import Clases.Tabla;
 import Interfaces.Item;
+import Utilidades.LectorExcel;
 import Utilidades.TecladoIn;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -39,12 +41,23 @@ public class main {
     }
 
     public static ArrayList<Item> listarItems() {
-        String cadena;
+        String cadena = "";
         ArrayList items;
+        String ruta = "C:/Users/Fernando/Desktop/datos_gas.xlsx";
+        File f = new File(ruta);
 
-        System.out.println("Ingresar lista de items (por ejemplo 5-C 4-C) separados por un espacio: ");
-        cadena = TecladoIn.readLine();
+        if (f.exists()) {
+            LectorExcel obj = new LectorExcel(f);
+            cadena = obj.getLista();
+            System.out.println("asd: " + cadena);
+        } else {
+            System.out.println("No existe el archivo especificado!");
+        }
+
+//        System.out.println("Ingresar lista de items (por ejemplo 5-C 4-C) separados por un espacio: ");
+//        cadena = TecladoIn.readLine();
         cadena = cadena.trim();
+
         items = parser(cadena);
 
         return items;
