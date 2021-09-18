@@ -87,7 +87,7 @@ public class LectorExcel {
             for (int j = 1; j < 2; j++) {
                 XSSFCell hssfCell = (XSSFCell) cellTempList.get(j);
                 String stringCellValue = hssfCell.toString();
-                res += stringCellValue;
+                res += stringCellValue + " ";
             }
         }
         return res;
@@ -101,7 +101,7 @@ public class LectorExcel {
             LectorExcel obj = new LectorExcel(f);
 
             System.out.println("-----------");
-            obj.getMetros();
+            System.out.println(obj.getMetros());
         } else {
             System.out.println("No existe el archivo especificado!");
         }
