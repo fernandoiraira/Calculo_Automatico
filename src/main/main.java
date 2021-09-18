@@ -45,10 +45,11 @@ public class main {
         ArrayList items;
         String ruta = "C:/Users/Fernando/Desktop/datos_gas.xlsx";
         File f = new File(ruta);
+        LectorExcel lector = null;
 
         if (f.exists()) {
-            LectorExcel obj = new LectorExcel(f);
-            cadena = obj.getLista();
+            lector = new LectorExcel(f);
+            cadena = lector.getLista();
             System.out.println("asd: " + cadena);
         } else {
             System.out.println("No existe el archivo especificado!");
@@ -56,16 +57,17 @@ public class main {
 
         cadena = cadena.trim();
 
-        items = parser(cadena);
+        items = parser(cadena, lector);
 
         return items;
     }
 
-    public static ArrayList<Item> parser(String cadena) {
+    public static ArrayList<Item> parser(String cadena, LectorExcel lector) {
         String sub, primerCaracter, nombreArtefacto;
-        int caloriasArtefacto;
+        int caloriasArtefacto, indice = 0;
         double metrosArtefacto, mayor = 0;
         ArrayList res = new ArrayList();
+        double[] arrayMetros = lector.getMetros();
 
         cadena = cadena + " ";
 
@@ -82,18 +84,18 @@ public class main {
                 System.out.println(sub);
                 System.out.println("Calorias: ");
                 caloriasArtefacto = TecladoIn.readLineInt();
-                System.out.println("Metros artefacto: ");
-                metrosArtefacto = TecladoIn.readLineDouble();
+                metrosArtefacto = arrayMetros[indice];
                 if (mayor < metrosArtefacto) {
                     mayor = metrosArtefacto;
                 }
-
                 Artefacto nuevoArtefacto = new Artefacto(Integer.valueOf(sub.substring(0, 1)), nombreArtefacto, caloriasArtefacto, metrosArtefacto);
                 res.add(nuevoArtefacto);
             } else {
                 Nodo nuevoNodo = new Nodo(sub);
+                nuevoNodo.setMetros(arrayMetros[indice]);
                 res.add(nuevoNodo);
             }
+            indice++;
         }
 
         for (int i = 0; i < res.size(); i++) {
