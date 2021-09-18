@@ -91,6 +91,5 @@ public class CreadorExcel {
             {"TR0", "DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"}};
 
         CreadorExcel creador = new CreadorExcel("Prueba_objeto.xlsx", "Hoja1", matriz);
-
     }
 }
