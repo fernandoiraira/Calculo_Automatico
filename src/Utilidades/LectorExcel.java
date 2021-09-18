@@ -52,18 +52,6 @@ public class LectorExcel {
 
     }
 
-    private void obtener(List cellDataList) {
-        for (int i = 0; i < cellDataList.size(); i++) {
-            List cellTempList = (List) cellDataList.get(i);
-
-            for (int j = 0; j < cellTempList.size(); j++) {
-                XSSFCell hssfCell = (XSSFCell) cellTempList.get(j);
-                String stringCellValue = hssfCell.toString();
-                System.out.println(stringCellValue + " ");
-            }
-        }
-    }
-
     public String getLista() {
         String res = "";
 
