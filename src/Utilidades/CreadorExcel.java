@@ -27,7 +27,7 @@ public class CreadorExcel {
     private String hoja;
     private String[][] matrizDatos;
 
-    public CreadorExcel(String nombre, String ruta, String hoja) {
+    public CreadorExcel(String nombre, String ruta, String hoja, String[][] matriz) {
 
         nombreArchivo = nombre;
         rutaArchivo += nombreArchivo;
@@ -39,13 +39,7 @@ public class CreadorExcel {
         String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)", "LONGIT. EQUIV. (m)", "CONSUMO m3"};
 
         //contenido de la hoja de excel
-        this.matrizDatos = new String[][]{
-            {"AP150", "ACCESS POINT TP-LINK TL-WA901ND 450Mbps Wireless N 1RJ45 10-100 3Ant.", "112.00", "50"},
-            {"RTP150", "ROUTER TP-LINK TL-WR940ND 10-100Mbpps LAN WAN 2.4 - 2.4835Ghz", "19.60", "25"},
-            {"TRT300", "TARJETA DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"},
-            {"TRT300", "DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"},
-            {"TR0", "DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"}
-        };
+        this.matrizDatos = matriz;
 
         //poner negrita a la cabecera
         CellStyle style = libro.createCellStyle();
