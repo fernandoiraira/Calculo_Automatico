@@ -78,18 +78,18 @@ public class LectorExcel {
         return res;
     }
 
-    public String getMetros() {
-        String res = "";
+    public double[] getMetros() {
+        double[] resultado = new double[this.cellData.size()];
 
         for (int i = 0; i < this.cellData.size(); i++) {
             List cellTempList = (List) this.cellData.get(i);
             for (int j = 1; j < 2; j++) {
                 XSSFCell hssfCell = (XSSFCell) cellTempList.get(j);
                 String stringCellValue = hssfCell.toString();
-                res += stringCellValue + " ";
+                resultado[i] = Double.parseDouble(stringCellValue);
             }
         }
-        return res;
+        return resultado;
     }
 
     public static void main(String[] args) {
