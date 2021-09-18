@@ -40,15 +40,19 @@ public class main {
 
         matriz = new String[lista.size()][lista.size()];
 
-        generarExcel(matriz, lista);
+        generarExcel(matriz, lista, tabla);
 
     }
 
-    public static void generarExcel(String[][] matriz, ArrayList<Item> lista) {
+    public static void generarExcel(String[][] matriz, ArrayList<Item> lista, Tabla tabla) {
         CreadorExcel creador;
 
         for (int i = 0; i < lista.size(); i++) {
             matriz[i][0] = lista.get(i).getNombre();
+            matriz[i][1] = String.valueOf(lista.get(i).getMetros());
+            matriz[i][2] = String.valueOf(lista.get(i).getMetros() * .35);
+            matriz[i][3] = String.valueOf(lista.get(i).getCalorias() / 9300);
+            matriz[i][4] = tabla.pedirDiametro(lista.get(i).getMetros(), lista.get(i).getCalorias());
         }
 
         creador = new CreadorExcel("Calculo_completo.xlsx", "Calculo", matriz);
