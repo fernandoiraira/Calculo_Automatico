@@ -36,7 +36,7 @@ public class CreadorExcel {
         XSSFWorkbook libro = new XSSFWorkbook();
         XSSFSheet hoja1 = libro.createSheet(this.hoja);
         //cabecera de la hoja de excel
-        String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)", "LONGIT. EQUIV. (m)", "CONSUMO m3"};
+        String[] header = new String[]{"TRAMO", "LONGIT. REAL (m)", "LONGIT. EQUIV. (m)", "LONGIT. CALC. (m)", "CONSUMO m3", "DIAM mm"};
 
         //contenido de la hoja de excel
         this.matrizDatos = matriz;
@@ -67,12 +67,11 @@ public class CreadorExcel {
         try ( FileOutputStream fileOuS = new FileOutputStream(file)) {
             if (file.exists()) {// si el archivo existe se elimina
                 file.delete();
-                System.out.println("Archivo eliminado");
             }
             libro.write(fileOuS);
             fileOuS.flush();
             fileOuS.close();
-            System.out.println("Archivo Creado");
+            System.out.println("Archivo Excel Creado!");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -81,15 +80,4 @@ public class CreadorExcel {
         }
     }
 
-    public static void main(String[] args) {
-
-        String[][] matriz = new String[][]{
-            {"AP150", "ACCESS POINT TP-LINK TL-WA901ND 450Mbps Wireless N 1RJ45 10-100 3Ant.", "112.00", "50"},
-            {"RTP150", "ROUTER TP-LINK TL-WR940ND 10-100Mbpps LAN WAN 2.4 - 2.4835Ghz", "19.60", "25"},
-            {"TRT300", "TARJETA DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"},
-            {"TRT300", "DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"},
-            {"TR0", "DE RED TPLINK TL-WN881ND 300Mpbs Wire-N PCI-Exp.", "10.68", "15"}};
-
-        CreadorExcel creador = new CreadorExcel("Prueba_objeto.xlsx", "Hoja1", matriz);
-    }
 }
